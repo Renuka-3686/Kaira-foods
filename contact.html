@@ -158,7 +158,7 @@
             bottom: 2px;
             width: 0;
             height: 2px;
-            background: #a33c0b;
+            
             transition: .3s ease;
             color: #a90000;
         }
@@ -212,44 +212,51 @@
            MOBILE MENU
         ================================= */
 
-        .mobile-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: #f8eee5;
-            border-top: 1px solid #e4d7cc;
-            box-shadow: 0 10px 25px rgba(50, 20, 5, .08);
+    .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
 
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
+    width: 100%;
+    background: #f8eee5;
+    border-top: 1px solid #e4d7cc;
+    box-shadow: 0 10px 25px rgba(50, 20, 5, .08);
 
-            transition:
-                max-height .35s ease,
-                opacity .25s ease,
-                visibility .35s ease;
-        }
+    /* Closed */
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
 
-        .mobile-menu.open {
-            max-height: 350px;
-            opacity: 1;
-            visibility: visible;
-        }
+    /* Slide from LEFT to RIGHT */
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.4s ease;
+}
 
-        .mobile-menu-inner {
-            width: min(1330px, calc(100% - 40px));
-            margin: auto;
-        }
 
-        .mobile-menu a {
-            display: block;
-            padding: 17px 5px;
-            border-bottom: 1px solid #e4d7cc;
-            font-size: 16px;
-            font-weight: 500;
-        }
+/* Open */
+.mobile-menu.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+       .mobile-menu-inner {
+    width: min(1330px, calc(100% - 40px));
+    margin: auto;
+}
+
+    .mobile-menu a {
+    display: block;
+    padding: 17px 5px;
+    border-bottom: 1px solid #e4d7cc;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: #35190e;
+}
 
         .mobile-menu a:last-child {
             border-bottom: 0;
@@ -1179,7 +1186,7 @@ South India, Kerala State
 
             <div class="feature-icon">
 
-                <img src="./images/quality.png">
+                <img src="./images/Quality.png">
 
             </div>
 
