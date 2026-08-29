@@ -72,7 +72,7 @@
         <div><h3>No Preservatives</h3><p>100% Natural</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon"><img src="./images/Traditional.png"></div>
+        <div class="trust-icon"><img src="./images/traditional.png"></div>
         <div><h3>Traditional Recipes</h3><p>Authentic Taste</p></div>
       </div>
       <div class="trust-item">
@@ -103,8 +103,8 @@
   {name:"Lime Pickle", category:"pickles", image:"images/lemon-pickle.jpg"},
   {name:"Tender Mango Pickle", category:"pickles", image:"images/tender-mango-pickle.jpg"},
   {name:"Roasted Dry Red Chilly", category:"pickles", image:"images/red-chilli-pickle.jpg"},
-  {name:"Chicken Idiyirachi", category:"meat", image:"images/chicken-Idiyirachi.jpg"},
-  {name:"Beef Idiyirachi", category:"meat", image:"images/beef-Idiyirachi.jpg"},
+  {name:"Chicken Idiyirachi", category:"meat", image:"images/chicken-idiyirachi.jpg"},
+  {name:"Beef Idiyirachi", category:"meat", image:"images/beef-idiyirachi.jpg"},
 
 ];
 
@@ -287,7 +287,9 @@ button,select{font:inherit}
 /* Mobile */
 @media (max-width:767px){
   body{padding-top:118px}
-  .container{width:min(100% - 28px,var(--max))}
+ .container {
+    width: min(100% - 28px, var(--max));
+  }
   .topbar{height:35px}
   .topbar-inner{font-size:11px}
   .socials{gap:10px}
@@ -296,19 +298,83 @@ button,select{font:inherit}
   .nav-wrap{height:82px}
   .logo{width:145px}
   .logo img{height:65px}
-  .hamburger{display:block;z-index:21}
-  .main-nav{
-    position:fixed;z-index:999;top:122px;left:0;width:100%;
-    background:#f8eee5;border-top:1px solid #dcc7b5;
-    display:flex;flex-direction:column;align-items:stretch;gap:0;
-    max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .25s ease;
-    box-shadow:0 8px 18px rgba(0,0,0,.12)
+  
+ .main-nav {
+    position: fixed;
+    z-index: 1001;
+
+    top: 117px;
+    right: 0;
+    left: 0;
+
+    width: 100%;
+    height: calc(100vh - 117px);
+
+    background: #f8eee5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    /* Hidden to the right */
+    transform: translateX(100%);
+    opacity: 0;
+
+    transition:
+      transform 0.4s ease,
+      opacity 0.3s ease;
+
+    overflow-y: auto;
   }
-  .main-nav.open{max-height:320px;opacity:1}
-  .main-nav a{padding:16px 24px;border-bottom:1px solid #e0cec0;font-size:16px}
-  .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-  .hamburger.active span:nth-child(2){opacity:0}
-  .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  /* Menu open */
+  .main-nav.open {
+    transform: translateX(0);
+    opacity: 1;
+    text-align: center;
+  }
+  /* Menu links */
+  .main-nav a {
+    padding: 18px 25px;
+    border-bottom: 1px solid #e0cec0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+   .main-nav a:hover {
+    background: #ead8c8;
+    color: var(--red);
+  }
+    .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1002;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 27px;
+    height: 2px;
+    background: #2b160e;
+    margin: 6px auto;
+    transition: 0.3s ease;
+  }
+    .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
   .hero{height:175px}
   .hero h1{font-size:43px}
